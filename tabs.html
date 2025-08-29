@@ -1,51 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="tabs.css">
-   <title>Bing Bong</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="tabs.css" />
+    <title>Bing Bong</title>
+    <script src="tabs.js"></script>
+                <script
+              type="module"
+              src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   </head>
   <body data-new-gr-c-s-check-loaded="14.1223.0" data-gr-ext-installed="">
-  
-    <div class="window">
-  <div class="title-bar">
-    <div class="title-bar-text">⊹₊ ˚‧︵‿₊୨୧₊‿︵‧ ˚ ₊⊹</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
-      <button aria-label="Close"></button>
-    </div>
-  </div>
-  <div class="window-body">
-    <menu role="tablist">
-      <button aria-selected="true" aria-controls="blinkies">About</button>
-      <button aria-controls="disk">Blinkies</button>
-      <button aria-controls="shadow">Lain</button>
-    </menu>
-    
-    <article role="tabpanel" id="blinkies">
-      <textarea id="about" >HIIIIIII𖹭
+    <article class="window" data-window="window">
+      <div class="title-bar">
+        <div class="title-bar-text">⊹₊ ˚‧︵‿₊୨୧₊‿︵‧ ˚ ₊⊹</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <menu role="tablist">
+          <li><button role="tab" aria-selected="true" aria-controls="tab1">Navi</button></li>
+          <li><button role="tab" aria-selected="false" aria-controls="tab2">Blinkies</button></li>
+          <li><button role="tab" aria-selected="false" aria-controls="tab3">Lain</button></li>
+        </menu>
 
-      </textarea>
-  
-      </article>
-    
+        <article role="tabpanel" id="tab1">
+<model-viewer style = "width:1050px;height:1050px;" id = "glb" crossorigin="https://sketchfab.com/3d-models/handy-navi-serial-experiments-lain-bdf99e56ce054e8c998775e5ca340bff" camera-controls touch-action="pan-y" auto-rotate ></model-viewer>
+<script>
+    document.getElementById('glb').src= "/tabs/handy_navi_-_serial_experiments_lain.glb/"
+</script>
 
-    <article role="tabpanel" hidden id="disk">
-      <img style="width: 100%" src="https://i.imgur.com/mXDAQXt.png">
-    </article>
-    
-<article role="tabpanel" hidden id="shadow">
-    
-        <iframe title="pet" id="gfypet" width="314" height="321" src="https://gifypet.neocities.org/pet/pet.html?name=Lain&dob=1740426149&gender=f&element=Air&pet=https%3A%2F%2Fi.imgur.com%2FY590vHx.gif&map=https%3A%2F%2Fi.pinimg.com%2F736x%2F6f%2F0b%2Fad%2F6f0badaf5bfdbb329def0b1206aaf678.jpg&background=https%3A%2F%2Fi.imgur.com%2FSlLBVoU.png&tablecolor=%23312f2f&textcolor=%23272626">
+          <div id="text">HIIIIIII𖹭 Welcome! So happy you made it. I hope you enjoy your stay:)</div>
+        </article>
+
+        <article role="tabpanel" id="tab2" hidden>
+          <div>
+            <img style="width: 100%" src="https://i.imgur.com/mXDAQXt.png" />
+          </div>
+        </article>
+
+        <article role="tabpanel" id="tab3" hidden>
+          <iframe
+            title="gfypet"
+            width="314"
+            height="321"
+            src="https://gifypet.neocities.org/pet/pet.html?name=Lain&dob=1740426149&gender=f&element=Air&pet=https%3A%2F%2Fi.imgur.com%2FY590vHx.gif&map=https%3A%2F%2Fi.pinimg.com%2F736x%2F6f%2F0b%2Fad%2F6f0badaf5bfdbb329def0b1206aaf678.jpg&background=https%3A%2F%2Fi.imgur.com%2FSlLBVoU.png&tablecolor=%23312f2f&textcolor=%23272626">
           </iframe>
-      </article>  
-  </div>
-</div>
- 
-<script src="tabs.js"></script>
-
-  
-
-</body>
+        </article>
+      </div>
+    </article>
+  </body>
 </html>
