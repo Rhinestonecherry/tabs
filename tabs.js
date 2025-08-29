@@ -1,40 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
-const tabs = document.querySelectorAll("menu[role=tablist]");
+  const tabLists = document.querySelectorAll("menu[role=tablist]");
 
-for (let i = 0; i < tabs.length; i++) {
-  const tab = tabs[i];
+  tabLists.forEach(tabList => {
+    const tabButtons = tabList.querySelectorAll("li button");
 
-  const tabButtons = tab.querySelectorAll("menu[role=tablist] > button");
+    tabButtons.forEach(button => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
 
-  tabButtons.forEach((btn) =>
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
+        // Update tab states
+        tabButtons.forEach(btn => {
+          const isActive = btn === e.target;
+          btn.setAttribute("aria-selected", isActive);
+        });
 
-      tabButtons.forEach((button) => {
-        if (
-          button.getAttribute("aria-controls") ===
-          e.target.getAttribute("aria-controls")
-        ) {
-          button.setAttribute("aria-selected", true);
-          openTab(e, tab);
-        } else {
-          button.setAttribute("aria-selected", false);
-        }
+        openTab(e, tabList);
       });
-    })
-  );
-}
-  
+    });
+  });
 });
 
+function openTab(event, tabList) {
+  const panels = tabList.parentNode.querySelectorAll('[role="tabpanel"]');
 
-function openTab(event, tab) {
-  const articles = tab.parentNode.querySelectorAll('[role="tabpanel"]');
-  articles.forEach((p) => {
-    p.setAttribute("hidden", true);
+  panels.forEach(panel => {
+    panel.setAttribute("hidden", ""); // hide all
   });
-  const article = tab.parentNode.querySelector(
+
+  const activePanel = tabList.parentNode.querySelector(
     `[role="tabpanel"]#${event.target.getAttribute("aria-controls")}`
   );
-  article.removeAttribute("hidden");
+
+  activePanel.removeAttribute("hidden"); // show current
 }
